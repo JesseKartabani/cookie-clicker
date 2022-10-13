@@ -1,14 +1,14 @@
 import { StyleSheet, Text, View } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import Cookie from "./components/Cookie";
+import CookieCounter from "./components/CookieCounter";
 
 export default function App() {
   return (
     <SafeAreaProvider style={styles.container}>
-      <Text>TEST</Text>
-      {/* GameStore (horizontal) */}
+      <CookieCounter />
       <Cookie />
-      {/* Cookie counter */}
+      {/* GameStore (horizontal) */}
     </SafeAreaProvider>
   );
 }
