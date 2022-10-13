@@ -4,7 +4,8 @@ import React from "react";
 const CookieCounter = () => {
   return (
     <SafeAreaView>
-      <Text>CookieCounter</Text>
+      <Text>Cookies</Text>
+      <Text>per second</Text>
     </SafeAreaView>
   );
 };
