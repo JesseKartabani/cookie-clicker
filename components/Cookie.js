@@ -11,7 +11,10 @@ import {
 import React, { useState } from "react";
 
 const Cookie = () => {
+  // Animation state
   const [rotateAnimation, setRotateAnimation] = useState(new Animated.Value(0));
+  // Cookies collected state
+  const [count, setCount] = useState(0);
 
   // Rotates cookie slightly on click giving it a shaking animation
   const handleAnimation = () => {
@@ -40,7 +43,11 @@ const Cookie = () => {
   return (
     <SafeAreaView>
       <TouchableOpacity
-        onPress={async () => handleAnimation()}
+        onPress={async () => {
+          handleAnimation();
+          setCount(count + 1);
+          console.log(count);
+        }}
         style={Styles.imgContainer}
       >
         <Animated.Text style={animatedStyle}>
