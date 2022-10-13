@@ -7,6 +7,7 @@ import {
   Image,
   Platform,
   Animated,
+  ScrollView,
 } from "react-native";
 import React, { useState } from "react";
 
@@ -63,6 +64,17 @@ const Cookie = () => {
           />
         </Animated.Text>
       </TouchableOpacity>
+
+      {/* Cookie upgrades */}
+      <ScrollView horizontal={true}>
+        <TouchableOpacity>
+          <Text>1</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity>
+          <Text>1</Text>
+        </TouchableOpacity>
+      </ScrollView>
     </SafeAreaView>
   );
 };
