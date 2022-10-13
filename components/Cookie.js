@@ -51,8 +51,6 @@ const Cookie = () => {
         onPress={async () => {
           handleAnimation();
           setCount(count + 1);
-          const totalCookies = +count;
-          console.log(totalCookies);
         }}
         style={Styles.imgContainer}
       >
