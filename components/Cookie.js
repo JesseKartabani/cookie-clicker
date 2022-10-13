@@ -5,6 +5,7 @@ import {
   SafeAreaView,
   TouchableOpacity,
   Image,
+  Platform,
 } from "react-native";
 import React from "react";
 
@@ -30,11 +31,22 @@ const Styles = StyleSheet.create({
     width: 100,
     height: 100,
     alignSelf: "center",
+    ...Platform.select({
+      ios: {},
+      android: {},
+      default: {},
+    }),
   },
   imgContainer: {
-    backgroundColor: "red",
-    marginTop: 300,
-    marginLeft: 100,
-    marginRight: 100,
+    ...Platform.select({
+      ios: {
+        backgroundColor: "red",
+        marginTop: 300,
+        marginLeft: 100,
+        marginRight: 100,
+      },
+      android: {},
+      default: {},
+    }),
   },
 });
