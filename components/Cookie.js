@@ -28,25 +28,36 @@ export default Cookie;
 
 const Styles = StyleSheet.create({
   img: {
-    width: 100,
-    height: 100,
+    width: 200,
+    height: 200,
     alignSelf: "center",
     ...Platform.select({
       ios: {},
       android: {},
-      default: {},
+      default: {
+        width: 300,
+        height: 300,
+      },
     }),
   },
   imgContainer: {
     ...Platform.select({
       ios: {
-        backgroundColor: "red",
-        marginTop: 300,
+        marginTop: 275,
         marginLeft: 100,
         marginRight: 100,
       },
-      android: {},
-      default: {},
+      android: {
+        marginTop: 275,
+        marginLeft: 100,
+        marginRight: 100,
+      },
+      default: {
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh",
+      },
     }),
   },
 });
