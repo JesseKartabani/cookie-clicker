@@ -13,7 +13,7 @@ import React, { useState } from "react";
 const Cookie = () => {
   const [rotateAnimation, setRotateAnimation] = useState(new Animated.Value(0));
 
-  // Rotates cookie on click
+  // Rotates cookie slightly on click giving it a shaking animation
   const handleAnimation = () => {
     Animated.timing(rotateAnimation, {
       toValue: 1,
