@@ -11,15 +11,13 @@ import React from "react";
 const Cookie = () => {
   return (
     <SafeAreaView>
-      <TouchableOpacity>
-        <View style={Styles.imgContainer}>
-          <Image
-            style={Styles.img}
-            source={{
-              uri: "https://i.imgur.com/D1sOdaz.png",
-            }}
-          />
-        </View>
+      <TouchableOpacity style={Styles.imgContainer}>
+        <Image
+          style={Styles.img}
+          source={{
+            uri: "https://i.imgur.com/D1sOdaz.png",
+          }}
+        />
       </TouchableOpacity>
     </SafeAreaView>
   );
@@ -31,9 +29,12 @@ const Styles = StyleSheet.create({
   img: {
     width: 100,
     height: 100,
+    alignSelf: "center",
   },
   imgContainer: {
-    justifyContent: "center",
-    alignItems: "center",
+    backgroundColor: "red",
+    marginTop: 300,
+    marginLeft: 100,
+    marginRight: 100,
   },
 });
