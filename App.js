@@ -6,7 +6,6 @@ export default function App() {
   return (
     <SafeAreaProvider style={styles.container}>
       <Cookie />
-      {/* GameStore (horizontal) */}
     </SafeAreaProvider>
   );
 }
