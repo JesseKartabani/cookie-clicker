@@ -43,7 +43,7 @@ const Cookie = () => {
   return (
     <SafeAreaView>
       {/* Displays users collected cookies and cookies per second */}
-      <Text style={Styles.cookieCount}>{count}Cookies</Text>
+      <Text style={Styles.cookieCount}>{count} Cookies</Text>
       <Text>per second</Text>
 
       <TouchableOpacity
@@ -74,10 +74,21 @@ const Styles = StyleSheet.create({
     textAlign: "center",
     ...Platform.select({
       ios: {
-        backgroundColor: "red",
+        //backgroundColor: "red",
+        marginTop: 20,
+        fontSize: 35,
+        fontWeight: "bold",
       },
-      android: {},
-      default: {},
+      android: {
+        marginTop: 20,
+        fontSize: 35,
+        fontWeight: "bold",
+      },
+      default: {
+        paddingTop: 50,
+        fontSize: "300%",
+        fontWeight: "bold",
+      },
     }),
   },
   img: {
