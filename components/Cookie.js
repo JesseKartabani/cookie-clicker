@@ -12,13 +12,9 @@ const Cookie = () => {
   return (
     <SafeAreaView>
       <TouchableOpacity>
-        <View style={Styles.img}>
+        <View style={Styles.imgContainer}>
           <Image
-            style={{
-              resizeMode: "contain",
-              width: 100,
-              height: 100,
-            }}
+            style={Styles.img}
             source={{
               uri: "https://i.imgur.com/D1sOdaz.png",
             }}
@@ -33,6 +29,10 @@ export default Cookie;
 
 const Styles = StyleSheet.create({
   img: {
+    width: 100,
+    height: 100,
+  },
+  imgContainer: {
     justifyContent: "center",
     alignItems: "center",
   },
