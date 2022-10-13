@@ -42,11 +42,13 @@ const Cookie = () => {
 
   return (
     <SafeAreaView>
+      <Text>{count}Cookies</Text>
+      <Text>per second</Text>
       <TouchableOpacity
+        // On press we run our animation and increment cookie count +1
         onPress={async () => {
           handleAnimation();
           setCount(count + 1);
-          console.log(count);
         }}
         style={Styles.imgContainer}
       >
