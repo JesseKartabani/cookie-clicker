@@ -44,7 +44,7 @@ const Cookie = () => {
     <SafeAreaView>
       {/* Displays users collected cookies and cookies per second */}
       <Text style={Styles.cookieCount}>{count} Cookies</Text>
-      <Text>per second</Text>
+      <Text style={Styles.cookiesPerSecond}>per second</Text>
 
       <TouchableOpacity
         // On press we run our animation and increment cookie count +1
@@ -70,6 +70,21 @@ const Cookie = () => {
 export default Cookie;
 
 const Styles = StyleSheet.create({
+  cookiesPerSecond: {
+    textAlign: "center",
+    ...Platform.select({
+      ios: {
+        //backgroundColor: "red",
+        fontSize: 20,
+      },
+      android: {
+        fontSize: 20,
+      },
+      default: {
+        fontSize: "110%",
+      },
+    }),
+  },
   cookieCount: {
     textAlign: "center",
     ...Platform.select({
