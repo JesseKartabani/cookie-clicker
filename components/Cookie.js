@@ -67,7 +67,9 @@ const Cookie = () => {
 
       {/* Cookie upgrades */}
       <Text style={Styles.upgradesTitle}>Upgrades</Text>
+
       <ScrollView horizontal={true}>
+        {/* Upgrade image and name */}
         <TouchableOpacity>
           <Text style={Styles.upgradesSubtitles}>Cursor</Text>
           <Image
@@ -76,6 +78,16 @@ const Cookie = () => {
               uri: "https://i.imgur.com/zPY66CS.png",
             }}
           />
+          {/* Cookie upgrade cost */}
+          <Text style={Styles.cookieCostText}>
+            <Image
+              style={Styles.cookieCostImg}
+              source={{
+                uri: "https://i.imgur.com/D1sOdaz.png",
+              }}
+            />
+            {/* Acutal cost to buy upgrade*/} 10
+          </Text>
         </TouchableOpacity>
 
         <TouchableOpacity>
@@ -89,6 +101,27 @@ const Cookie = () => {
 export default Cookie;
 
 const Styles = StyleSheet.create({
+  cookieCostText: {
+    height: 20,
+    alignSelf: "center",
+    backgroundColor: "red",
+    ...Platform.select({
+      ios: {},
+      android: {},
+      default: {},
+    }),
+  },
+
+  cookieCostImg: {
+    height: 15,
+    width: 15,
+    ...Platform.select({
+      ios: {},
+      android: {},
+      default: {},
+    }),
+  },
+
   upgradesSubtitles: {
     textAlign: "center",
     fontWeight: "500",
