@@ -66,6 +66,7 @@ const Cookie = () => {
       </TouchableOpacity>
 
       {/* Cookie upgrades */}
+      <Text style={Styles.upgradesTitle}>Upgrades</Text>
       <ScrollView horizontal={true}>
         <TouchableOpacity>
           <Text>1</Text>
@@ -82,6 +83,21 @@ const Cookie = () => {
 export default Cookie;
 
 const Styles = StyleSheet.create({
+  upgradesTitle: {
+    textAlign: "center",
+    fontWeight: "bold",
+    ...Platform.select({
+      ios: {
+        fontSize: 20,
+      },
+      android: {
+        fontSize: 20,
+      },
+      default: {
+        fontSize: "110%",
+      },
+    }),
+  },
   cookiesPerSecond: {
     textAlign: "center",
     ...Platform.select({
