@@ -69,7 +69,13 @@ const Cookie = () => {
       <Text style={Styles.upgradesTitle}>Upgrades</Text>
       <ScrollView horizontal={true}>
         <TouchableOpacity>
-          <Text>1</Text>
+          <Text style={Styles.upgradesSubtitles}>Cursor</Text>
+          <Image
+            style={Styles.upgradesImages}
+            source={{
+              uri: "https://i.imgur.com/zPY66CS.png",
+            }}
+          />
         </TouchableOpacity>
 
         <TouchableOpacity>
@@ -83,6 +89,30 @@ const Cookie = () => {
 export default Cookie;
 
 const Styles = StyleSheet.create({
+  upgradesSubtitles: {
+    textAlign: "center",
+    fontWeight: "500",
+    marginTop: 10,
+    ...Platform.select({
+      ios: {},
+      android: {},
+      default: {
+        fontSize: "110%",
+      },
+    }),
+  },
+  upgradesImages: {
+    height: 100,
+    width: 100,
+    ...Platform.select({
+      ios: {},
+      android: {},
+      default: {
+        height: 150,
+        width: 150,
+      },
+    }),
+  },
   upgradesTitle: {
     textAlign: "center",
     fontWeight: "bold",
@@ -165,7 +195,7 @@ const Styles = StyleSheet.create({
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        height: "65vh",
+        height: "60vh",
       },
     }),
   },
