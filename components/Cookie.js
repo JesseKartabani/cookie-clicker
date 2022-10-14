@@ -86,7 +86,7 @@ const Cookie = () => {
                 uri: "https://i.imgur.com/D1sOdaz.png",
               }}
             />
-            {/* Acutal cost to buy upgrade*/} 10
+            {/* Cost to buy upgrade*/} 10
           </Text>
         </TouchableOpacity>
 
@@ -104,11 +104,14 @@ const Styles = StyleSheet.create({
   cookieCostText: {
     height: 20,
     alignSelf: "center",
-    backgroundColor: "red",
+    fontWeight: "600",
     ...Platform.select({
       ios: {},
       android: {},
-      default: {},
+      default: {
+        fontSize: "120%",
+        height: 35,
+      },
     }),
   },
 
@@ -118,13 +121,16 @@ const Styles = StyleSheet.create({
     ...Platform.select({
       ios: {},
       android: {},
-      default: {},
+      default: {
+        height: 25,
+        width: 25,
+      },
     }),
   },
 
   upgradesSubtitles: {
     textAlign: "center",
-    fontWeight: "500",
+    fontWeight: "700",
     marginTop: 10,
     ...Platform.select({
       ios: {},
@@ -137,12 +143,16 @@ const Styles = StyleSheet.create({
   upgradesImages: {
     height: 100,
     width: 100,
+    marginBottom: -10,
+    marginTop: -10,
     ...Platform.select({
       ios: {},
       android: {},
       default: {
         height: 150,
         width: 150,
+        marginBottom: -20,
+        marginTop: -20,
       },
     }),
   },
