@@ -150,12 +150,12 @@ const Styles = StyleSheet.create({
   imgContainer: {
     ...Platform.select({
       ios: {
-        marginTop: 275,
+        marginTop: 200,
         marginLeft: 100,
         marginRight: 100,
       },
       android: {
-        marginTop: 275,
+        marginTop: 200,
         marginLeft: 100,
         marginRight: 100,
       },
