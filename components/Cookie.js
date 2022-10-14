@@ -53,11 +53,11 @@ const Cookie = () => {
           handleAnimation();
           setCount(count + 1);
         }}
-        style={Styles.imgContainer}
+        style={Styles.cookieImgContainer}
       >
         <Animated.Text style={animatedStyle}>
           <Image
-            style={Styles.img}
+            style={Styles.cookieImg}
             source={{
               uri: "https://i.imgur.com/D1sOdaz.png",
             }}
@@ -136,7 +136,7 @@ const Styles = StyleSheet.create({
       },
     }),
   },
-  img: {
+  cookieImg: {
     width: 200,
     height: 200,
     alignSelf: "center",
@@ -149,7 +149,7 @@ const Styles = StyleSheet.create({
       },
     }),
   },
-  imgContainer: {
+  cookieImgContainer: {
     ...Platform.select({
       ios: {
         marginTop: 150,
