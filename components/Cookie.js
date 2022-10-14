@@ -18,6 +18,8 @@ const Cookie = () => {
   const [count, setCount] = useState(0);
   // Tracks users total click multiplier
   const [clickmultiplier, setClickmultiplier] = useState(1);
+  // Upgrade costs
+  const cursorUpgradeCost = 20;
 
   // Rotates cookie slightly on click giving it a shaking animation
   const handleAnimation = () => {
@@ -45,8 +47,8 @@ const Cookie = () => {
 
   // Cookie upgrade functions
   const cursorUpgrade = () => {
-    if (count < 20) return; // 10 is the cost of upgrading
-    setCount(count - 20);
+    if (count < cursorUpgradeCost) return; // 10 is the cost of upgrading
+    setCount(count - cursorUpgradeCost);
     setClickmultiplier(clickmultiplier + 0.1); // Give user 0.1x multiplier
     console.log(clickmultiplier);
   };
@@ -100,7 +102,7 @@ const Cookie = () => {
                 uri: "https://i.imgur.com/D1sOdaz.png",
               }}
             />
-            {/* Cost to buy upgrade*/} 10
+            {/* */} {cursorUpgradeCost}
           </Text>
         </TouchableOpacity>
 
