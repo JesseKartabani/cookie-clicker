@@ -17,7 +17,9 @@ const Cookie = () => {
   // Cookies collected state
   const [count, setCount] = useState(0);
   // Tracks users total click multiplier
-  const [clickmultiplier, setClickmultiplier] = useState(1);
+  const [clickMultiplier, setClickmultiplier] = useState(1);
+  // Tracks users total cookies per second
+  const [cookiesPerSecond, setCookiesPerSecond] = useState(0);
   // Upgrade costs
   const cursorUpgradeCost = 20;
 
@@ -49,21 +51,26 @@ const Cookie = () => {
   const cursorUpgrade = () => {
     if (count < cursorUpgradeCost) return;
     setCount(count - cursorUpgradeCost);
-    setClickmultiplier(clickmultiplier + 0.1); // Give user 0.1x multiplier
-    console.log(clickmultiplier);
+    setClickmultiplier(clickMultiplier + 0.1); // Give user 0.1x multiplier
+    console.log(clickMultiplier);
   };
+
+  // Add cookies per second to total cookie count
+  const addCookiesPerSecond = () => {};
 
   return (
     <SafeAreaView>
       {/* Displays users collected cookies and cookies per second */}
       <Text style={Styles.cookieCount}>{count.toFixed()} Cookies</Text>
-      <Text style={Styles.cookiesPerSecond}>passive cps</Text>
+      <Text style={Styles.cookiesPerSecond}>
+        passive cps {cookiesPerSecond.toFixed()}
+      </Text>
 
       <TouchableOpacity
         // On press we run our animation and increment cookie count
         onPress={async () => {
           handleAnimation();
-          setCount(count + 1 * clickmultiplier);
+          setCount(count + 1 * clickMultiplier);
         }}
         style={Styles.cookieImgContainer}
       >
@@ -193,7 +200,6 @@ const Styles = StyleSheet.create({
     textAlign: "center",
     ...Platform.select({
       ios: {
-        //backgroundColor: "red",
         fontSize: 20,
       },
       android: {
@@ -208,7 +214,6 @@ const Styles = StyleSheet.create({
     textAlign: "center",
     ...Platform.select({
       ios: {
-        //backgroundColor: "red",
         marginTop: 20,
         fontSize: 35,
         fontWeight: "bold",
