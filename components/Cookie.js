@@ -41,6 +41,11 @@ const Cookie = () => {
     ],
   };
 
+  // Cookie upgrade functions
+  const cursorUpgrade = () => {
+    setCount(count - 10);
+  };
+
   return (
     <SafeAreaView>
       {/* Displays users collected cookies and cookies per second */}
@@ -70,7 +75,11 @@ const Cookie = () => {
 
       <ScrollView horizontal={true}>
         {/* Upgrade image and name */}
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={async () => {
+            cursorUpgrade();
+          }}
+        >
           <Text style={Styles.upgradesSubtitles}>Cursor</Text>
           <Image
             style={Styles.upgradesImages}
