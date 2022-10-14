@@ -163,7 +163,7 @@ const Styles = StyleSheet.create({
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        height: "100vh",
+        height: "70vh",
       },
     }),
   },
