@@ -89,12 +89,14 @@ const Styles = StyleSheet.create({
     ...Platform.select({
       ios: {
         fontSize: 20,
+        marginTop: 140,
       },
       android: {
         fontSize: 20,
+        marginTop: 140,
       },
       default: {
-        fontSize: "110%",
+        fontSize: "200%",
       },
     }),
   },
@@ -150,12 +152,12 @@ const Styles = StyleSheet.create({
   imgContainer: {
     ...Platform.select({
       ios: {
-        marginTop: 200,
+        marginTop: 150,
         marginLeft: 100,
         marginRight: 100,
       },
       android: {
-        marginTop: 200,
+        marginTop: 150,
         marginLeft: 100,
         marginRight: 100,
       },
@@ -163,7 +165,7 @@ const Styles = StyleSheet.create({
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        height: "70vh",
+        height: "65vh",
       },
     }),
   },
