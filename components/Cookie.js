@@ -47,7 +47,7 @@ const Cookie = () => {
 
   // Cookie upgrade functions
   const cursorUpgrade = () => {
-    if (count < cursorUpgradeCost) return; // 10 is the cost of upgrading
+    if (count < cursorUpgradeCost) return;
     setCount(count - cursorUpgradeCost);
     setClickmultiplier(clickmultiplier + 0.1); // Give user 0.1x multiplier
     console.log(clickmultiplier);
