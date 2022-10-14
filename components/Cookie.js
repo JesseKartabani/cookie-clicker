@@ -66,6 +66,7 @@ const Cookie = () => {
         passive cps {cookiesPerSecond.toFixed()}
       </Text>
 
+      {/* Clickable Cookie */}
       <TouchableOpacity
         // On press we run our animation and increment cookie count
         onPress={async () => {
@@ -89,7 +90,7 @@ const Cookie = () => {
 
       <ScrollView horizontal={true}>
         {/*  Cursor Upgrade */}
-        {/* Upgrade image and name */}
+        {/* Cookie upgrade image and name */}
         <TouchableOpacity
           onPress={async () => {
             cursorUpgrade();
@@ -114,7 +115,8 @@ const Cookie = () => {
           </Text>
         </TouchableOpacity>
 
-        {/*  Cursor Upgrade */}
+        {/* New Upgrade */}
+        {/* Cookie upgrade image and name */}
         <TouchableOpacity
           onPress={async () => {
             //
