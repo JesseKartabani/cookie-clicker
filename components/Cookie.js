@@ -16,6 +16,8 @@ const Cookie = () => {
   const [rotateAnimation, setRotateAnimation] = useState(new Animated.Value(0));
   // Cookies collected state
   const [count, setCount] = useState(0);
+  // Tracks users total click multiplier
+  const [clickmultiplier, setClickmultiplier] = useState(1);
 
   // Rotates cookie slightly on click giving it a shaking animation
   const handleAnimation = () => {
@@ -43,20 +45,22 @@ const Cookie = () => {
 
   // Cookie upgrade functions
   const cursorUpgrade = () => {
-    setCount(count - 10);
+    setCount(count - 10); // 10 is the cost of upgrading
+    setClickmultiplier(clickmultiplier + 0.1);
+    console.log(clickmultiplier);
   };
 
   return (
     <SafeAreaView>
       {/* Displays users collected cookies and cookies per second */}
-      <Text style={Styles.cookieCount}>{count} Cookies</Text>
+      <Text style={Styles.cookieCount}>{count.toFixed()} Cookies</Text>
       <Text style={Styles.cookiesPerSecond}>passive cps</Text>
 
       <TouchableOpacity
-        // On press we run our animation and increment cookie count +1
+        // On press we run our animation and increment cookie count
         onPress={async () => {
           handleAnimation();
-          setCount(count + 1);
+          setCount(count + 1 * clickmultiplier);
         }}
         style={Styles.cookieImgContainer}
       >
