@@ -88,6 +88,7 @@ const Cookie = () => {
       <Text style={Styles.upgradesTitle}>Upgrades</Text>
 
       <ScrollView horizontal={true}>
+        {/*  Cursor Upgrade */}
         {/* Upgrade image and name */}
         <TouchableOpacity
           onPress={async () => {
@@ -113,8 +114,29 @@ const Cookie = () => {
           </Text>
         </TouchableOpacity>
 
-        <TouchableOpacity>
-          <Text>1</Text>
+        {/*  Cursor Upgrade */}
+        <TouchableOpacity
+          onPress={async () => {
+            //
+          }}
+        >
+          <Text style={Styles.upgradesSubtitles}>new</Text>
+          <Image
+            style={Styles.upgradesImages}
+            source={{
+              uri: "https://i.imgur.com/zPY66CS.png",
+            }}
+          />
+          {/* Cookie upgrade cost */}
+          <Text style={Styles.cookieCostText}>
+            <Image
+              style={Styles.cookieCostImg}
+              source={{
+                uri: "https://i.imgur.com/D1sOdaz.png",
+              }}
+            />
+            {/* */} {10}
+          </Text>
         </TouchableOpacity>
       </ScrollView>
     </SafeAreaView>
