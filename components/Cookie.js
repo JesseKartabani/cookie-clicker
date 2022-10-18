@@ -18,8 +18,6 @@ const Cookie = () => {
   const [count, setCount] = useState(0);
   // Tracks users total click multiplier
   const [clickMultiplier, setClickmultiplier] = useState(1);
-  // Tracks users total cookies per second
-  const [cookiesPerSecond, setCookiesPerSecond] = useState(0);
   // Upgrade costs
   const cursorUpgradeCost = 20;
 
@@ -55,16 +53,11 @@ const Cookie = () => {
     console.log(clickMultiplier);
   };
 
-  // Add cookies per second to total cookie count
-  const addCookiesPerSecond = () => {};
-
   return (
     <SafeAreaView>
       {/* Displays users collected cookies and cookies per second */}
       <Text style={Styles.cookieCount}>{count.toFixed()} Cookies</Text>
-      <Text style={Styles.cookiesPerSecond}>
-        passive cps {cookiesPerSecond.toFixed()}
-      </Text>
+      <Text style={Styles.cookiesPerSecond}>passive cps</Text>
 
       {/* Clickable Cookie */}
       <TouchableOpacity
@@ -112,32 +105,6 @@ const Cookie = () => {
               }}
             />
             {/* */} {cursorUpgradeCost}
-          </Text>
-        </TouchableOpacity>
-
-        {/* New Upgrade */}
-        {/* Cookie upgrade image and name */}
-        <TouchableOpacity
-          onPress={async () => {
-            //
-          }}
-        >
-          <Text style={Styles.upgradesSubtitles}>new</Text>
-          <Image
-            style={Styles.upgradesImages}
-            source={{
-              uri: "https://i.imgur.com/zPY66CS.png",
-            }}
-          />
-          {/* Cookie upgrade cost */}
-          <Text style={Styles.cookieCostText}>
-            <Image
-              style={Styles.cookieCostImg}
-              source={{
-                uri: "https://i.imgur.com/D1sOdaz.png",
-              }}
-            />
-            {/* */} {10}
           </Text>
         </TouchableOpacity>
       </ScrollView>
