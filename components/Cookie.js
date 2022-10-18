@@ -18,6 +18,8 @@ const Cookie = () => {
   const [count, setCount] = useState(0);
   // Tracks users total click multiplier
   const [clickMultiplier, setClickmultiplier] = useState(1);
+  // Tracks users total cookies per second
+  const [cookiesPerSecond, setCookiesPerSecond] = useState(0);
   // Upgrade costs
   const cursorUpgradeCost = 20;
 
@@ -53,12 +55,18 @@ const Cookie = () => {
     console.log(clickMultiplier);
   };
 
+  // Add cookies per second to total cookie count
+  const addCookiesPerSecond = () => {};
+
   return (
     <SafeAreaView>
       {/* Displays users collected cookies and cookies per second */}
       <Text style={Styles.cookieCount}>{count.toFixed()} Cookies</Text>
-      <Text style={Styles.cookiesPerSecond}>passive cps</Text>
+      <Text style={Styles.cookiesPerSecond}>
+        passive cps {cookiesPerSecond.toFixed()}
+      </Text>
 
+      {/* Clickable Cookie */}
       <TouchableOpacity
         // On press we run our animation and increment cookie count
         onPress={async () => {
@@ -82,7 +90,7 @@ const Cookie = () => {
 
       <ScrollView horizontal={true}>
         {/*  Cursor Upgrade */}
-        {/* Upgrade image and name */}
+        {/* Cookie upgrade image and name */}
         <TouchableOpacity
           onPress={async () => {
             cursorUpgrade();
@@ -107,7 +115,8 @@ const Cookie = () => {
           </Text>
         </TouchableOpacity>
 
-        {/*  Cursor Upgrade */}
+        {/* New Upgrade */}
+        {/* Cookie upgrade image and name */}
         <TouchableOpacity
           onPress={async () => {
             //
