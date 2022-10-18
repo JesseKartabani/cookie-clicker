@@ -107,8 +107,7 @@ const Cookie = () => {
           </Text>
         </TouchableOpacity>
 
-        {/* New Upgrade */}
-        {/* Cookie upgrade image and name */}
+        {/*  Cursor Upgrade */}
         <TouchableOpacity
           onPress={async () => {
             //
