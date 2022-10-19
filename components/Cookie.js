@@ -22,9 +22,11 @@ const Cookie = () => {
   const [cookiesPerSecond, setCookiesPerSecond] = useState(0);
   // Upgrade costs
   const cursorUpgradeCost = 20;
+  const grandmaUpgradeCost = 10;
 
   // Upgrade counts (amount of times user has bought an upgrade)
   const [cursorCount, setCursorCount] = useState(0);
+  const [grandmaCount, setGrandmaCount] = useState(0);
 
   // Rotates cookie slightly on click giving it a shaking animation
   const handleAnimation = () => {
@@ -58,6 +60,15 @@ const Cookie = () => {
     console.log(clickMultiplier);
 
     setCursorCount(cursorCount + 1); // How many upgrades user has
+  };
+
+  const grandmaUpgrade = () => {
+    if (count < grandmaUpgradeCost) return;
+    setCount(count - grandmaUpgradeCost);
+    setCookiesPerSecond(cookiesPerSecond + 0.1); // Give user 0.1 cps
+    console.log(cookiesPerSecond);
+
+    setGrandmaCount(grandmaCount + 1); // How many upgrades user has
   };
 
   // Add cookies per second to total cookie count
@@ -128,7 +139,7 @@ const Cookie = () => {
         {/* Cookie upgrade image and name */}
         <TouchableOpacity
           onPress={async () => {
-            //
+            grandmaUpgrade();
           }}
         >
           <Text style={Styles.upgradesSubtitles}>new</Text>
@@ -139,7 +150,7 @@ const Cookie = () => {
                 uri: "https://i.imgur.com/t9YfqrJ.png",
               }}
             />
-            <Text style={Styles.upgradeCountText}>10</Text>
+            <Text style={Styles.upgradeCountText}>{grandmaCount}</Text>
           </View>
 
           {/* Cookie upgrade cost */}
@@ -150,7 +161,7 @@ const Cookie = () => {
                 uri: "https://i.imgur.com/D1sOdaz.png",
               }}
             />
-            {/* */} {10}
+            {/* */} {grandmaUpgradeCost}
           </Text>
         </TouchableOpacity>
       </ScrollView>
