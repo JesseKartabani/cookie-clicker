@@ -158,6 +158,7 @@ export default Cookie;
 const Styles = StyleSheet.create({
   upgradeView: {
     //backgroundColor: "red",
+    marginLeft: 10,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
@@ -172,7 +173,7 @@ const Styles = StyleSheet.create({
     position: "absolute",
     left: 0,
     top: 0,
-    fontWeight: "900",
+    fontWeight: "400",
     ...Platform.select({
       ios: {},
       android: {},
