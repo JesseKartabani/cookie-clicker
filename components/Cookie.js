@@ -14,7 +14,7 @@ import React, { useState } from "react";
 const Cookie = () => {
   // Animation state
   const [rotateAnimation, setRotateAnimation] = useState(new Animated.Value(0));
-  // Cookies collected state
+  // Cookies collected
   const [count, setCount] = useState(0);
   // Tracks users total click multiplier
   const [clickMultiplier, setClickmultiplier] = useState(1);
@@ -126,7 +126,7 @@ const Cookie = () => {
           <Image
             style={Styles.upgradesImages}
             source={{
-              uri: "https://i.imgur.com/zPY66CS.png",
+              uri: "https://i.imgur.com/t9YfqrJ.png",
             }}
           />
           {/* Cookie upgrade cost */}
