@@ -124,7 +124,7 @@ const Cookie = () => {
             <Image
               style={Styles.upgradesImages}
               source={{
-                uri: "https://i.imgur.com/zPY66CS.png",
+                uri: "https://i.imgur.com/T42x8PH.png",
               }}
             />
             <Text style={Styles.upgradeCountText}>{cursorCount}</Text>
