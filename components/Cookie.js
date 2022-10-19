@@ -152,7 +152,7 @@ const Cookie = () => {
             grandmaUpgrade();
           }}
         >
-          <Text style={Styles.upgradesSubtitles}>new</Text>
+          <Text style={Styles.upgradesSubtitles}>Grandma</Text>
           <View style={Styles.upgradeView}>
             <Image
               style={Styles.upgradesImages}
