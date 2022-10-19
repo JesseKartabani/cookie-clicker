@@ -123,12 +123,16 @@ const Cookie = () => {
           }}
         >
           <Text style={Styles.upgradesSubtitles}>new</Text>
-          <Image
-            style={Styles.upgradesImages}
-            source={{
-              uri: "https://i.imgur.com/t9YfqrJ.png",
-            }}
-          />
+          <View style={Styles.upgradeView}>
+            <Image
+              style={Styles.upgradesImages}
+              source={{
+                uri: "https://i.imgur.com/t9YfqrJ.png",
+              }}
+            />
+            <Text style={Styles.upgradeCountText}>10</Text>
+          </View>
+
           {/* Cookie upgrade cost */}
           <Text style={Styles.cookieCostText}>
             <Image
@@ -148,16 +152,44 @@ const Cookie = () => {
 export default Cookie;
 
 const Styles = StyleSheet.create({
+  upgradeView: {
+    //backgroundColor: "red",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    ...Platform.select({
+      ios: {},
+      android: {},
+      default: {},
+    }),
+  },
+
+  upgradeCountText: {
+    position: "absolute",
+    left: 0,
+    top: 0,
+    fontWeight: "900",
+    ...Platform.select({
+      ios: {},
+      android: {},
+      default: {
+        fontSize: "120%",
+      },
+    }),
+  },
+
   cookieCostText: {
     height: 20,
     alignSelf: "center",
     fontWeight: "600",
+    marginTop: 5,
     ...Platform.select({
       ios: {},
       android: {},
       default: {
         fontSize: "120%",
         height: 35,
+        marginTop: 15,
       },
     }),
   },
@@ -188,18 +220,14 @@ const Styles = StyleSheet.create({
     }),
   },
   upgradesImages: {
-    height: 100,
-    width: 100,
-    marginBottom: -10,
-    marginTop: -10,
+    height: 75,
+    width: 75,
     ...Platform.select({
       ios: {},
       android: {},
       default: {
         height: 150,
         width: 150,
-        marginBottom: -20,
-        marginTop: -20,
       },
     }),
   },
