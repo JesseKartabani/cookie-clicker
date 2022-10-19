@@ -9,7 +9,7 @@ import {
   Animated,
   ScrollView,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const Cookie = () => {
   // Animation state
@@ -19,7 +19,7 @@ const Cookie = () => {
   // Tracks users total click multiplier
   const [clickMultiplier, setClickmultiplier] = useState(1);
   // Tracks users total cookies per second
-  const [cookiesPerSecond, setCookiesPerSecond] = useState(0);
+  const [cookiesPerSecond, setCookiesPerSecond] = useState(1);
   // Upgrade costs
   const cursorUpgradeCost = 20;
   const grandmaUpgradeCost = 10;
@@ -66,13 +66,21 @@ const Cookie = () => {
     if (count < grandmaUpgradeCost) return;
     setCount(count - grandmaUpgradeCost);
     setCookiesPerSecond(cookiesPerSecond + 0.1); // Give user 0.1 cps
-    console.log(cookiesPerSecond);
 
     setGrandmaCount(grandmaCount + 1); // How many upgrades user has
   };
 
   // Add cookies per second to total cookie count
-  const addCookiesPerSecond = () => {};
+  // Runs every 5 seconds
+  useEffect(() => {
+    const addCookiesPerSecond = setInterval(() => {
+      //console.log(count);
+      //console.log(cookiesPerSecond);
+      let cookiesToAdd = cookiesPerSecond * 1;
+      setCount((count) => count + cookiesToAdd); // make this match the interval
+    }, 1000);
+    return () => clearInterval(addCookiesPerSecond);
+  }, [cookiesPerSecond]);
 
   return (
     <SafeAreaView>
