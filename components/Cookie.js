@@ -23,6 +23,9 @@ const Cookie = () => {
   // Upgrade costs
   const cursorUpgradeCost = 20;
 
+  // Upgrade counts (amount of times user has bought an upgrade)
+  const [cursorCount, setCursorCount] = useState(0);
+
   // Rotates cookie slightly on click giving it a shaking animation
   const handleAnimation = () => {
     Animated.timing(rotateAnimation, {
@@ -53,6 +56,8 @@ const Cookie = () => {
     setCount(count - cursorUpgradeCost);
     setClickmultiplier(clickMultiplier + 0.1); // Give user 0.1x multiplier
     console.log(clickMultiplier);
+
+    setCursorCount(cursorCount + 1); // How many upgrades user has
   };
 
   // Add cookies per second to total cookie count
@@ -104,7 +109,7 @@ const Cookie = () => {
                 uri: "https://i.imgur.com/zPY66CS.png",
               }}
             />
-            <Text style={Styles.upgradeCountText}>10</Text>
+            <Text style={Styles.upgradeCountText}>{cursorCount}</Text>
           </View>
 
           {/* Cookie upgrade cost */}
