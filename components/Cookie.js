@@ -97,12 +97,16 @@ const Cookie = () => {
           }}
         >
           <Text style={Styles.upgradesSubtitles}>Cursor</Text>
-          <Image
-            style={Styles.upgradesImages}
-            source={{
-              uri: "https://i.imgur.com/zPY66CS.png",
-            }}
-          />
+          <View style={Styles.upgradeView}>
+            <Image
+              style={Styles.upgradesImages}
+              source={{
+                uri: "https://i.imgur.com/zPY66CS.png",
+              }}
+            />
+            <Text style={Styles.upgradeCountText}>10</Text>
+          </View>
+
           {/* Cookie upgrade cost */}
           <Text style={Styles.cookieCostText}>
             <Image
