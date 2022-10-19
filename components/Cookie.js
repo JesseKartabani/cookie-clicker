@@ -41,7 +41,7 @@ const Cookie = () => {
 
   const interpolateRotating = rotateAnimation.interpolate({
     inputRange: [0, 1],
-    outputRange: ["0deg", "2deg"], // How much cookie rotates
+    outputRange: ["0deg", "6deg"], // How much cookie rotates
   });
 
   const animatedStyle = {
