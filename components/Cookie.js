@@ -8,6 +8,7 @@ import {
   Platform,
   Animated,
   ScrollView,
+  ImageBackground,
 } from "react-native";
 import React, { useEffect, useState } from "react";
 
@@ -109,163 +110,173 @@ const Cookie = () => {
   }, [cookiesPerSecond]);
 
   return (
-    <SafeAreaView>
-      {/* Displays users collected cookies and cookies per second */}
-      <Text style={Styles.cookieCount}>{count.toFixed()} Cookies</Text>
-      <Text style={Styles.cookiesPerSecond}>
-        passive cps: {cookiesPerSecond.toFixed(1)}
-      </Text>
+    <ImageBackground
+      style={Styles.backgroundImg}
+      source={{ uri: "https://i.imgur.com/uivwJrT.jpg" }}
+    >
+      <SafeAreaView>
+        {/* Displays users collected cookies and cookies per second */}
+        <Text style={Styles.cookieCount}>{count.toFixed()} Cookies</Text>
+        <Text style={Styles.cookiesPerSecond}>
+          passive cps: {cookiesPerSecond.toFixed(1)}
+        </Text>
 
-      {/* Clickable Cookie */}
-      <TouchableOpacity
-        // On press we run our animation and increment cookie count
-        onPress={async () => {
-          handleAnimation();
-          setCount(count + 1 * clickMultiplier);
-        }}
-        style={Styles.cookieImgContainer}
-      >
-        <Animated.Text style={animatedStyle}>
-          <Image
-            style={Styles.cookieImg}
-            source={{
-              uri: "https://i.imgur.com/D1sOdaz.png",
+        {/* Clickable Cookie */}
+        <TouchableOpacity
+          // On press we run our animation and increment cookie count
+          onPress={async () => {
+            handleAnimation();
+            setCount(count + 1 * clickMultiplier);
+          }}
+          style={Styles.cookieImgContainer}
+        >
+          <Animated.Text style={animatedStyle}>
+            <Image
+              style={Styles.cookieImg}
+              source={{
+                uri: "https://i.imgur.com/D1sOdaz.png",
+              }}
+            />
+          </Animated.Text>
+        </TouchableOpacity>
+
+        {/* Cookie upgrades */}
+        <Text style={Styles.upgradesTitle}>Upgrades</Text>
+
+        <ScrollView horizontal={true}>
+          {/*  Cursor Upgrade */}
+          {/* Cookie upgrade image and name */}
+          <TouchableOpacity
+            onPress={async () => {
+              cursorUpgrade();
             }}
-          />
-        </Animated.Text>
-      </TouchableOpacity>
+          >
+            <Text style={Styles.upgradesSubtitles}>Cursor</Text>
+            <View style={Styles.upgradeView}>
+              <Image
+                style={Styles.upgradesImages}
+                source={{
+                  uri: "https://i.imgur.com/T42x8PH.png",
+                }}
+              />
+              <Text style={Styles.upgradeCountText}>{cursorCount}</Text>
+            </View>
 
-      {/* Cookie upgrades */}
-      <Text style={Styles.upgradesTitle}>Upgrades</Text>
+            {/* Cookie upgrade cost */}
+            <Text style={Styles.cookieCostText}>
+              <Image
+                style={Styles.cookieCostImg}
+                source={{
+                  uri: "https://i.imgur.com/D1sOdaz.png",
+                }}
+              />
+              {/* */} {cursorUpgradeCost.toFixed()}
+            </Text>
+          </TouchableOpacity>
 
-      <ScrollView horizontal={true}>
-        {/*  Cursor Upgrade */}
-        {/* Cookie upgrade image and name */}
-        <TouchableOpacity
-          onPress={async () => {
-            cursorUpgrade();
-          }}
-        >
-          <Text style={Styles.upgradesSubtitles}>Cursor</Text>
-          <View style={Styles.upgradeView}>
-            <Image
-              style={Styles.upgradesImages}
-              source={{
-                uri: "https://i.imgur.com/T42x8PH.png",
-              }}
-            />
-            <Text style={Styles.upgradeCountText}>{cursorCount}</Text>
-          </View>
+          {/* Grandma Upgrade */}
+          {/* Cookie upgrade image and name */}
+          <TouchableOpacity
+            onPress={async () => {
+              grandmaUpgrade();
+            }}
+          >
+            <Text style={Styles.upgradesSubtitles}>Grandma</Text>
+            <View style={Styles.upgradeView}>
+              <Image
+                style={Styles.upgradesImages}
+                source={{
+                  uri: "https://i.imgur.com/t9YfqrJ.png",
+                }}
+              />
+              <Text style={Styles.upgradeCountText}>{grandmaCount}</Text>
+            </View>
 
-          {/* Cookie upgrade cost */}
-          <Text style={Styles.cookieCostText}>
-            <Image
-              style={Styles.cookieCostImg}
-              source={{
-                uri: "https://i.imgur.com/D1sOdaz.png",
-              }}
-            />
-            {/* */} {cursorUpgradeCost.toFixed()}
-          </Text>
-        </TouchableOpacity>
+            {/* Cookie upgrade cost */}
+            <Text style={Styles.cookieCostText}>
+              <Image
+                style={Styles.cookieCostImg}
+                source={{
+                  uri: "https://i.imgur.com/D1sOdaz.png",
+                }}
+              />
+              {/* */} {grandmaUpgradeCost.toFixed()}
+            </Text>
+          </TouchableOpacity>
 
-        {/* Grandma Upgrade */}
-        {/* Cookie upgrade image and name */}
-        <TouchableOpacity
-          onPress={async () => {
-            grandmaUpgrade();
-          }}
-        >
-          <Text style={Styles.upgradesSubtitles}>Grandma</Text>
-          <View style={Styles.upgradeView}>
-            <Image
-              style={Styles.upgradesImages}
-              source={{
-                uri: "https://i.imgur.com/t9YfqrJ.png",
-              }}
-            />
-            <Text style={Styles.upgradeCountText}>{grandmaCount}</Text>
-          </View>
+          {/*  Farm Upgrade */}
+          {/* Cookie upgrade image and name */}
+          <TouchableOpacity
+            onPress={async () => {
+              farmUpgrade();
+            }}
+          >
+            <Text style={Styles.upgradesSubtitles}>Farm</Text>
+            <View style={Styles.upgradeView}>
+              <Image
+                style={Styles.upgradesImages}
+                source={{
+                  uri: "https://i.imgur.com/LIUJMA1.png",
+                }}
+              />
+              <Text style={Styles.upgradeCountText}>{farmCount}</Text>
+            </View>
 
-          {/* Cookie upgrade cost */}
-          <Text style={Styles.cookieCostText}>
-            <Image
-              style={Styles.cookieCostImg}
-              source={{
-                uri: "https://i.imgur.com/D1sOdaz.png",
-              }}
-            />
-            {/* */} {grandmaUpgradeCost.toFixed()}
-          </Text>
-        </TouchableOpacity>
+            {/* Cookie upgrade cost */}
+            <Text style={Styles.cookieCostText}>
+              <Image
+                style={Styles.cookieCostImg}
+                source={{
+                  uri: "https://i.imgur.com/D1sOdaz.png",
+                }}
+              />
+              {/* */} {farmUpgradeCost.toFixed()}
+            </Text>
+          </TouchableOpacity>
 
-        {/*  Farm Upgrade */}
-        {/* Cookie upgrade image and name */}
-        <TouchableOpacity
-          onPress={async () => {
-            farmUpgrade();
-          }}
-        >
-          <Text style={Styles.upgradesSubtitles}>Farm</Text>
-          <View style={Styles.upgradeView}>
-            <Image
-              style={Styles.upgradesImages}
-              source={{
-                uri: "https://i.imgur.com/LIUJMA1.png",
-              }}
-            />
-            <Text style={Styles.upgradeCountText}>{farmCount}</Text>
-          </View>
+          {/* Factory Upgrade */}
+          {/* Cookie upgrade image and name */}
+          <TouchableOpacity
+            onPress={async () => {
+              factoryUpgrade();
+            }}
+          >
+            <Text style={Styles.upgradesSubtitles}>Factory</Text>
+            <View style={Styles.upgradeView}>
+              <Image
+                style={Styles.upgradesImages}
+                source={{
+                  uri: "https://i.imgur.com/x43Vl9b.png",
+                }}
+              />
+              <Text style={Styles.upgradeCountText}>{factoryCount}</Text>
+            </View>
 
-          {/* Cookie upgrade cost */}
-          <Text style={Styles.cookieCostText}>
-            <Image
-              style={Styles.cookieCostImg}
-              source={{
-                uri: "https://i.imgur.com/D1sOdaz.png",
-              }}
-            />
-            {/* */} {farmUpgradeCost.toFixed()}
-          </Text>
-        </TouchableOpacity>
-
-        {/* Factory Upgrade */}
-        {/* Cookie upgrade image and name */}
-        <TouchableOpacity
-          onPress={async () => {
-            factoryUpgrade();
-          }}
-        >
-          <Text style={Styles.upgradesSubtitles}>Factory</Text>
-          <View style={Styles.upgradeView}>
-            <Image
-              style={Styles.upgradesImages}
-              source={{
-                uri: "https://i.imgur.com/x43Vl9b.png",
-              }}
-            />
-            <Text style={Styles.upgradeCountText}>{factoryCount}</Text>
-          </View>
-
-          {/* Cookie upgrade cost */}
-          <Text style={Styles.cookieCostText}>
-            <Image
-              style={Styles.cookieCostImg}
-              source={{
-                uri: "https://i.imgur.com/D1sOdaz.png",
-              }}
-            />
-            {/* */} {factoryUpgradeCost.toFixed()}
-          </Text>
-        </TouchableOpacity>
-      </ScrollView>
-    </SafeAreaView>
+            {/* Cookie upgrade cost */}
+            <Text style={Styles.cookieCostText}>
+              <Image
+                style={Styles.cookieCostImg}
+                source={{
+                  uri: "https://i.imgur.com/D1sOdaz.png",
+                }}
+              />
+              {/* */} {factoryUpgradeCost.toFixed()}
+            </Text>
+          </TouchableOpacity>
+        </ScrollView>
+      </SafeAreaView>
+    </ImageBackground>
   );
 };
 
 export default Cookie;
 
 const Styles = StyleSheet.create({
+  backgroundImg: {
+    height: "100%",
+    width: "100%",
+  },
+
   upgradeView: {
     //backgroundColor: "red",
     marginLeft: 10,
@@ -298,6 +309,7 @@ const Styles = StyleSheet.create({
     alignSelf: "center",
     fontWeight: "600",
     marginTop: 5,
+    color: "white",
     ...Platform.select({
       ios: {},
       android: {},
@@ -326,6 +338,7 @@ const Styles = StyleSheet.create({
     textAlign: "center",
     fontWeight: "700",
     marginTop: 10,
+    color: "white",
     ...Platform.select({
       ios: {},
       android: {},
@@ -349,6 +362,7 @@ const Styles = StyleSheet.create({
   upgradesTitle: {
     textAlign: "center",
     fontWeight: "bold",
+    color: "white",
     ...Platform.select({
       ios: {
         fontSize: 20,
@@ -365,6 +379,7 @@ const Styles = StyleSheet.create({
   },
   cookiesPerSecond: {
     textAlign: "center",
+    color: "white",
     ...Platform.select({
       ios: {
         fontSize: 20,
@@ -379,6 +394,7 @@ const Styles = StyleSheet.create({
   },
   cookieCount: {
     textAlign: "center",
+    color: "white",
     ...Platform.select({
       ios: {
         marginTop: 20,
