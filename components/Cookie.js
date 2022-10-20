@@ -144,16 +144,28 @@ const Cookie = () => {
               }),
             }}
           >
+            {/* TODO */}
             <MenuOption>
-              <Text>Two</Text>
+              <Text>Stats</Text>
             </MenuOption>
 
             <MenuOption>
-              <Text>Two</Text>
+              <Text>Cookies Per Click</Text>
             </MenuOption>
 
             <MenuOption>
-              <Text>Two</Text>
+              <Text>Cursor Click Multiplier</Text>
+            </MenuOption>
+
+            <MenuOption>
+              <Text>Grandma cps</Text>
+            </MenuOption>
+
+            <MenuOption>
+              <Text>Farm cps</Text>
+            </MenuOption>
+            <MenuOption>
+              <Text>Factory cps</Text>
             </MenuOption>
           </MenuOptions>
         </Menu>
