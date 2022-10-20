@@ -26,7 +26,7 @@ const Cookie = () => {
   const [grandmaUpgradeCost, setGrandmaUpgradeCost] = useState(10);
   const [farmUpgradeCost, setFarmUpgradeCost] = useState(50);
   const [factoryUpgradeCost, setFactoryUpgradeCost] = useState(100);
-  const upgradePriceMultiplier = 1.5;
+  const upgradePriceMultiplier = 1.1;
 
   // Upgrade counts (amount of times user has bought an upgrade)
   const [cursorCount, setCursorCount] = useState(0);
