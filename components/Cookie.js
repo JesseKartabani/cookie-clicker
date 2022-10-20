@@ -27,6 +27,11 @@ const Cookie = () => {
   const [farmUpgradeCost, setFarmUpgradeCost] = useState(50);
   const [factoryUpgradeCost, setFactoryUpgradeCost] = useState(100);
   const upgradePriceMultiplier = 1.1;
+  // Upgrade buffs
+  const cursorUpgradeBuff = 0.2;
+  const grandmaUpgradeCPS = 1;
+  const farmUpgradeCPS = 3;
+  const factoryUpgradeCPS = 5;
 
   // Upgrade counts (amount of times user has bought an upgrade)
   const [cursorCount, setCursorCount] = useState(0);
@@ -62,7 +67,7 @@ const Cookie = () => {
   const cursorUpgrade = () => {
     if (count < cursorUpgradeCost) return;
     setCount(count - cursorUpgradeCost);
-    setClickmultiplier(clickMultiplier + 0.2); // Give user 0.2x multiplier
+    setClickmultiplier(clickMultiplier + cursorUpgradeBuff); // Give user 0.2x multiplier
     console.log(clickMultiplier);
     setCursorUpgradeCost(cursorUpgradeCost * upgradePriceMultiplier);
 
@@ -72,7 +77,7 @@ const Cookie = () => {
   const grandmaUpgrade = () => {
     if (count < grandmaUpgradeCost) return;
     setCount(count - grandmaUpgradeCost);
-    setCookiesPerSecond(cookiesPerSecond + 1); // Give user 1 cps
+    setCookiesPerSecond(cookiesPerSecond + grandmaUpgradeCPS); // Give user 1 cps
     console.log(cookiesPerSecond);
     setGrandmaUpgradeCost(grandmaUpgradeCost * upgradePriceMultiplier);
 
@@ -82,7 +87,7 @@ const Cookie = () => {
   const farmUpgrade = () => {
     if (count < farmUpgradeCost) return;
     setCount(count - farmUpgradeCost);
-    setCookiesPerSecond(cookiesPerSecond + 3); // Give user 2.5 cps
+    setCookiesPerSecond(cookiesPerSecond + farmUpgradeCPS); // Give user 3 cps
     console.log(cookiesPerSecond);
     setFarmUpgradeCost(farmUpgradeCost * upgradePriceMultiplier);
 
@@ -92,7 +97,7 @@ const Cookie = () => {
   const factoryUpgrade = () => {
     if (count < factoryUpgradeCost) return;
     setCount(count - factoryUpgradeCost);
-    setCookiesPerSecond(cookiesPerSecond + 5); // Give user 5 cps
+    setCookiesPerSecond(cookiesPerSecond + factoryUpgradeCPS); // Give user 5 cps
     console.log(cookiesPerSecond);
     setFactoryUpgradeCost(factoryUpgradeCost * upgradePriceMultiplier);
 
