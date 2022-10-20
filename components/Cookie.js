@@ -296,6 +296,7 @@ const Styles = StyleSheet.create({
     left: 0,
     top: 0,
     fontWeight: "400",
+    color: "white",
     ...Platform.select({
       ios: {},
       android: {},
