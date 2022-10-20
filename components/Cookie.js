@@ -150,22 +150,38 @@ const Cookie = () => {
             </MenuOption>
 
             <MenuOption>
-              <Text>Cookies Per Click</Text>
+              <Text>
+                <Text>Cookies Per Click</Text>
+                <Text> {cursorUpgradeBuff * cursorCount + 1}</Text>
+              </Text>
             </MenuOption>
 
             <MenuOption>
-              <Text>Cursor Click Multiplier</Text>
+              <Text>
+                <Text>Cursor Click Multiplier</Text>
+                <Text> {cursorUpgradeBuff * cursorCount}</Text>
+              </Text>
             </MenuOption>
 
             <MenuOption>
-              <Text>Grandma cps</Text>
+              <Text>
+                <Text>Grandma cps</Text>
+                <Text> {grandmaUpgradeCPS * grandmaCount}</Text>
+              </Text>
             </MenuOption>
 
             <MenuOption>
-              <Text>Farm cps</Text>
+              <Text>
+                <Text>Farm cps</Text>
+                <Text> {farmUpgradeCPS * farmCount}</Text>
+              </Text>
             </MenuOption>
+
             <MenuOption>
-              <Text>Factory cps</Text>
+              <Text>
+                <Text>Factory cps</Text>
+                <Text> {factoryUpgradeCPS * factoryCount}</Text>
+              </Text>
             </MenuOption>
           </MenuOptions>
         </Menu>
