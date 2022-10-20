@@ -173,7 +173,7 @@ const Cookie = () => {
         {/* Cookie upgrades */}
         <Text style={Styles.upgradesTitle}>Upgrades</Text>
 
-        <ScrollView horizontal={true}>
+        <ScrollView centerContent={true} horizontal={true}>
           {/*  Cursor Upgrade */}
           {/* Cookie upgrade image and name */}
           <TouchableOpacity
@@ -302,11 +302,6 @@ const Cookie = () => {
 export default Cookie;
 
 const Styles = StyleSheet.create({
-  menuTrigger: {
-    activeOpacity: 40,
-    underlayColor: "darkblue",
-  },
-
   backgroundImg: {
     height: "100%",
     width: "100%",
@@ -314,7 +309,7 @@ const Styles = StyleSheet.create({
 
   upgradeView: {
     //backgroundColor: "red",
-    marginLeft: 10,
+    marginLeft: 20,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
