@@ -23,11 +23,13 @@ const Cookie = () => {
   // Upgrade costs
   const [cursorUpgradeCost, setCursorUpgradeCost] = useState(20);
   const [grandmaUpgradeCost, setGrandmaUpgradeCost] = useState(10);
+  const [farmUpgradeCost, setFarmUpgradeCost] = useState(50);
   const upgradePriceMultiplier = 1.5;
 
   // Upgrade counts (amount of times user has bought an upgrade)
   const [cursorCount, setCursorCount] = useState(0);
   const [grandmaCount, setGrandmaCount] = useState(0);
+  const [farmCount, setFarmCount] = useState(0);
 
   // Rotates cookie slightly on click giving it a shaking animation
   const handleAnimation = () => {
@@ -72,6 +74,16 @@ const Cookie = () => {
     setGrandmaUpgradeCost(grandmaUpgradeCost * upgradePriceMultiplier);
 
     setGrandmaCount(grandmaCount + 1); // How many upgrades user has
+  };
+
+  const farmUpgrade = () => {
+    if (count < farmUpgradeCost) return;
+    setCount(count - farmUpgradeCost);
+    setCookiesPerSecond(cookiesPerSecond + 1); // Give user 1 cps
+    console.log(cookiesPerSecond);
+    setFarmUpgradeCost(farmUpgradeCost * upgradePriceMultiplier);
+
+    setFarmCount(farmCount + 1); // How many upgrades user has
   };
 
   // Add cookies per second to total cookie count
@@ -172,6 +184,36 @@ const Cookie = () => {
               }}
             />
             {/* */} {grandmaUpgradeCost.toFixed()}
+          </Text>
+        </TouchableOpacity>
+
+        {/*  Farm Upgrade */}
+        {/* Cookie upgrade image and name */}
+        <TouchableOpacity
+          onPress={async () => {
+            farmUpgrade();
+          }}
+        >
+          <Text style={Styles.upgradesSubtitles}>Farm</Text>
+          <View style={Styles.upgradeView}>
+            <Image
+              style={Styles.upgradesImages}
+              source={{
+                uri: "https://i.imgur.com/LIUJMA1.png",
+              }}
+            />
+            <Text style={Styles.upgradeCountText}>{farmCount}</Text>
+          </View>
+
+          {/* Cookie upgrade cost */}
+          <Text style={Styles.cookieCostText}>
+            <Image
+              style={Styles.cookieCostImg}
+              source={{
+                uri: "https://i.imgur.com/D1sOdaz.png",
+              }}
+            />
+            {/* */} {farmUpgradeCost.toFixed()}
           </Text>
         </TouchableOpacity>
       </ScrollView>
