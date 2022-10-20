@@ -129,7 +129,7 @@ const Cookie = () => {
             setCount(count + 1 * clickMultiplier);
           }}
           style={Styles.cookieImgContainer}
-          activeOpacity={0.7}
+          activeOpacity={0.8}
         >
           <Animated.Text style={animatedStyle}>
             <Image
