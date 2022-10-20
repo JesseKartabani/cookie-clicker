@@ -62,7 +62,7 @@ const Cookie = () => {
   const cursorUpgrade = () => {
     if (count < cursorUpgradeCost) return;
     setCount(count - cursorUpgradeCost);
-    setClickmultiplier(clickMultiplier + 0.1); // Give user 0.1x multiplier
+    setClickmultiplier(clickMultiplier + 0.2); // Give user 0.2x multiplier
     console.log(clickMultiplier);
     setCursorUpgradeCost(cursorUpgradeCost * upgradePriceMultiplier);
 
@@ -72,7 +72,7 @@ const Cookie = () => {
   const grandmaUpgrade = () => {
     if (count < grandmaUpgradeCost) return;
     setCount(count - grandmaUpgradeCost);
-    setCookiesPerSecond(cookiesPerSecond + 0.1); // Give user 0.1 cps
+    setCookiesPerSecond(cookiesPerSecond + 1); // Give user 1 cps
     console.log(cookiesPerSecond);
     setGrandmaUpgradeCost(grandmaUpgradeCost * upgradePriceMultiplier);
 
@@ -82,7 +82,7 @@ const Cookie = () => {
   const farmUpgrade = () => {
     if (count < farmUpgradeCost) return;
     setCount(count - farmUpgradeCost);
-    setCookiesPerSecond(cookiesPerSecond + 1); // Give user 1 cps
+    setCookiesPerSecond(cookiesPerSecond + 3); // Give user 2.5 cps
     console.log(cookiesPerSecond);
     setFarmUpgradeCost(farmUpgradeCost * upgradePriceMultiplier);
 
