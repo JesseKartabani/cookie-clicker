@@ -11,6 +11,12 @@ import {
   ImageBackground,
 } from "react-native";
 import React, { useEffect, useState } from "react";
+import {
+  Menu,
+  MenuOption,
+  MenuOptions,
+  MenuTrigger,
+} from "react-native-popup-menu";
 
 const Cookie = () => {
   // Animation state
@@ -121,10 +127,28 @@ const Cookie = () => {
     >
       <SafeAreaView>
         {/* Displays users collected cookies and cookies per second */}
-        <Text style={Styles.cookieCount}>{count.toFixed()} Cookies</Text>
-        <Text style={Styles.cookiesPerSecond}>
-          passive cps: {cookiesPerSecond.toFixed(1)}
-        </Text>
+        <Menu>
+          <MenuTrigger style={Styles.menuTrigger}>
+            <Text style={Styles.cookieCount}>{count.toFixed()} Cookies</Text>
+            <Text style={Styles.cookiesPerSecond}>
+              passive cps: {cookiesPerSecond.toFixed(1)}
+            </Text>
+          </MenuTrigger>
+          {/* Users cookie stats */}
+          <MenuOptions>
+            <MenuOption>
+              <Text>Two</Text>
+            </MenuOption>
+
+            <MenuOption>
+              <Text>Two</Text>
+            </MenuOption>
+
+            <MenuOption>
+              <Text>Two</Text>
+            </MenuOption>
+          </MenuOptions>
+        </Menu>
 
         {/* Clickable Cookie */}
         <TouchableOpacity
@@ -278,6 +302,11 @@ const Cookie = () => {
 export default Cookie;
 
 const Styles = StyleSheet.create({
+  menuTrigger: {
+    activeOpacity: 40,
+    underlayColor: "darkblue",
+  },
+
   backgroundImg: {
     height: "100%",
     width: "100%",
