@@ -316,7 +316,9 @@ const Styles = StyleSheet.create({
     ...Platform.select({
       ios: {},
       android: {},
-      default: {},
+      default: {
+        marginLeft: 50,
+      },
     }),
   },
 
