@@ -24,12 +24,14 @@ const Cookie = () => {
   const [cursorUpgradeCost, setCursorUpgradeCost] = useState(20);
   const [grandmaUpgradeCost, setGrandmaUpgradeCost] = useState(10);
   const [farmUpgradeCost, setFarmUpgradeCost] = useState(50);
+  const [factoryUpgradeCost, setFactoryUpgradeCost] = useState(100);
   const upgradePriceMultiplier = 1.5;
 
   // Upgrade counts (amount of times user has bought an upgrade)
   const [cursorCount, setCursorCount] = useState(0);
   const [grandmaCount, setGrandmaCount] = useState(0);
   const [farmCount, setFarmCount] = useState(0);
+  const [factoryCount, setFactoryCount] = useState(0);
 
   // Rotates cookie slightly on click giving it a shaking animation
   const handleAnimation = () => {
@@ -84,6 +86,16 @@ const Cookie = () => {
     setFarmUpgradeCost(farmUpgradeCost * upgradePriceMultiplier);
 
     setFarmCount(farmCount + 1); // How many upgrades user has
+  };
+
+  const factoryUpgrade = () => {
+    if (count < factoryUpgradeCost) return;
+    setCount(count - factoryUpgradeCost);
+    setCookiesPerSecond(cookiesPerSecond + 5); // Give user 5 cps
+    console.log(cookiesPerSecond);
+    setFactoryUpgradeCost(factoryUpgradeCost * upgradePriceMultiplier);
+
+    setFactoryCount(factoryCount + 1); // How many upgrades user has
   };
 
   // Add cookies per second to total cookie count
@@ -214,6 +226,36 @@ const Cookie = () => {
               }}
             />
             {/* */} {farmUpgradeCost.toFixed()}
+          </Text>
+        </TouchableOpacity>
+
+        {/* Factory Upgrade */}
+        {/* Cookie upgrade image and name */}
+        <TouchableOpacity
+          onPress={async () => {
+            factoryUpgrade();
+          }}
+        >
+          <Text style={Styles.upgradesSubtitles}>Factory</Text>
+          <View style={Styles.upgradeView}>
+            <Image
+              style={Styles.upgradesImages}
+              source={{
+                uri: "https://i.imgur.com/x43Vl9b.png",
+              }}
+            />
+            <Text style={Styles.upgradeCountText}>{factoryCount}</Text>
+          </View>
+
+          {/* Cookie upgrade cost */}
+          <Text style={Styles.cookieCostText}>
+            <Image
+              style={Styles.cookieCostImg}
+              source={{
+                uri: "https://i.imgur.com/D1sOdaz.png",
+              }}
+            />
+            {/* */} {factoryUpgradeCost.toFixed()}
           </Text>
         </TouchableOpacity>
       </ScrollView>
