@@ -146,41 +146,56 @@ const Cookie = () => {
           >
             {/* TODO  plug real stats and make the numbers green*/}
             <MenuOption>
-              <Text>Stats</Text>
+              <Text style={Styles.menuTitle}>Stats</Text>
             </MenuOption>
 
             <MenuOption>
               <Text>
                 <Text>Cookies Per Click</Text>
-                <Text> {cursorUpgradeBuff * cursorCount + 1}</Text>
+                <Text style={Styles.statNumbers}>
+                  {" "}
+                  {cursorUpgradeBuff * cursorCount + 1}
+                </Text>
               </Text>
             </MenuOption>
 
             <MenuOption>
               <Text>
                 <Text>Cursor Click Multiplier</Text>
-                <Text> {cursorUpgradeBuff * cursorCount}</Text>
+                <Text style={Styles.statNumbers}>
+                  {" "}
+                  {cursorUpgradeBuff * cursorCount}
+                </Text>
               </Text>
             </MenuOption>
 
             <MenuOption>
               <Text>
                 <Text>Grandma cps</Text>
-                <Text> {grandmaUpgradeCPS * grandmaCount}</Text>
+                <Text style={Styles.statNumbers}>
+                  {" "}
+                  {grandmaUpgradeCPS * grandmaCount}
+                </Text>
               </Text>
             </MenuOption>
 
             <MenuOption>
               <Text>
                 <Text>Farm cps</Text>
-                <Text> {farmUpgradeCPS * farmCount}</Text>
+                <Text style={Styles.statNumbers}>
+                  {" "}
+                  {farmUpgradeCPS * farmCount}
+                </Text>
               </Text>
             </MenuOption>
 
             <MenuOption>
               <Text>
                 <Text>Factory cps</Text>
-                <Text> {factoryUpgradeCPS * factoryCount}</Text>
+                <Text style={Styles.statNumbers}>
+                  {" "}
+                  {factoryUpgradeCPS * factoryCount}
+                </Text>
               </Text>
             </MenuOption>
           </MenuOptions>
@@ -338,6 +353,15 @@ const Cookie = () => {
 export default Cookie;
 
 const Styles = StyleSheet.create({
+  menuTitle: {
+    fontWeight: 700,
+    fontSize: "120%",
+  },
+
+  statNumbers: {
+    color: "green",
+  },
+
   backgroundImg: {
     height: "100%",
     width: "100%",
