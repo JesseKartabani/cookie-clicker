@@ -144,7 +144,6 @@ const Cookie = () => {
               }),
             }}
           >
-            {/* TODO  plug real stats and make the numbers green*/}
             <MenuOption>
               <Text style={Styles.menuTitle}>Stats</Text>
             </MenuOption>
