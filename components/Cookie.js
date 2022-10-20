@@ -128,14 +128,22 @@ const Cookie = () => {
       <SafeAreaView>
         {/* Displays users collected cookies and cookies per second */}
         <Menu>
-          <MenuTrigger style={Styles.menuTrigger}>
+          <MenuTrigger>
             <Text style={Styles.cookieCount}>{count.toFixed()} Cookies</Text>
             <Text style={Styles.cookiesPerSecond}>
               passive cps: {cookiesPerSecond.toFixed(1)}
             </Text>
           </MenuTrigger>
           {/* Users cookie stats */}
-          <MenuOptions>
+          <MenuOptions
+            optionsContainerStyle={{
+              marginLeft: 95,
+              marginTop: 100,
+              ...Platform.select({
+                default: {},
+              }),
+            }}
+          >
             <MenuOption>
               <Text>Two</Text>
             </MenuOption>
