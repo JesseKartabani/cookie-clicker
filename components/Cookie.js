@@ -201,7 +201,7 @@ const Cookie = () => {
                 <Text style={Styles.menuText}>Cursor Click Multiplier</Text>
                 <Text style={Styles.statNumbers}>
                   {" "}
-                  {cursorUpgradeBuff * cursorCount}x
+                  {(cursorUpgradeBuff * cursorCount).toFixed(1)}x
                 </Text>
               </Text>
             </MenuOption>
