@@ -116,6 +116,7 @@ const Cookie = () => {
     setFactoryCount(factoryCount + 1); // How many upgrades user has
   };
 
+  // TODO: Fix bug function removes too much click multiplier
   // Progress bar logic
   const progressBar = () => {
     // 99% progress
@@ -126,6 +127,7 @@ const Cookie = () => {
       setClickmultiplier(clickMultiplier + progressBarBuff);
       // Counts clicks during buff so we know how much clickMultiplier to remove
       setCountProgressBuff(countProgressBuff + progressBarBuff);
+      console.log(countProgressBuff);
 
       setTimeout(function () {
         // Clear progress bar and click multiplier after 10 seconds
@@ -186,6 +188,16 @@ const Cookie = () => {
 
             <MenuOption>
               <Text>
+                <Text style={Styles.menuText}>Total Click Multiplier</Text>
+                <Text style={Styles.statNumbers}>
+                  {" "}
+                  {clickMultiplier.toFixed(1)}x
+                </Text>
+              </Text>
+            </MenuOption>
+
+            <MenuOption>
+              <Text>
                 <Text style={Styles.menuText}>Cursor Click Multiplier</Text>
                 <Text style={Styles.statNumbers}>
                   {" "}
@@ -236,7 +248,11 @@ const Cookie = () => {
           marginTop={2}
           borderColor={"black"}
         />
-        <View>{progressBarCount > 0.99 && <Text>Click Bonus!</Text>}</View>
+
+        {/* Click bonus popup text when progress bar is full */}
+        <View style={Styles.clickBonusTextContainer}>
+          {progressBarCount > 0.99 && <Text>Click Bonus!</Text>}
+        </View>
 
         {/* Clickable Cookie */}
         <TouchableOpacity
@@ -391,6 +407,12 @@ const Cookie = () => {
 export default Cookie;
 
 const Styles = StyleSheet.create({
+  clickBonusTextContainer: {
+    position: "absolute",
+    left: 0,
+    top: 0,
+  },
+
   progressBar: {
     backgroundColor: "#fff",
     alignSelf: "center",
