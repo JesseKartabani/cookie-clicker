@@ -139,6 +139,7 @@ const Cookie = () => {
             optionsContainerStyle={{
               marginLeft: 95,
               marginTop: 100,
+              backgroundColor: "black",
               ...Platform.select({
                 default: {},
               }),
@@ -150,7 +151,7 @@ const Cookie = () => {
 
             <MenuOption>
               <Text>
-                <Text>Cookies Per Click</Text>
+                <Text style={Styles.menuText}>Cookies Per Click</Text>
                 <Text style={Styles.statNumbers}>
                   {" "}
                   {cursorUpgradeBuff * cursorCount + 1}
@@ -160,17 +161,17 @@ const Cookie = () => {
 
             <MenuOption>
               <Text>
-                <Text>Cursor Click Multiplier</Text>
+                <Text style={Styles.menuText}>Cursor Click Multiplier</Text>
                 <Text style={Styles.statNumbers}>
                   {" "}
-                  {cursorUpgradeBuff * cursorCount}
+                  {cursorUpgradeBuff * cursorCount}x
                 </Text>
               </Text>
             </MenuOption>
 
             <MenuOption>
               <Text>
-                <Text>Grandma cps</Text>
+                <Text style={Styles.menuText}>Grandma cps</Text>
                 <Text style={Styles.statNumbers}>
                   {" "}
                   {grandmaUpgradeCPS * grandmaCount}
@@ -180,7 +181,7 @@ const Cookie = () => {
 
             <MenuOption>
               <Text>
-                <Text>Farm cps</Text>
+                <Text style={Styles.menuText}>Farm cps</Text>
                 <Text style={Styles.statNumbers}>
                   {" "}
                   {farmUpgradeCPS * farmCount}
@@ -190,7 +191,7 @@ const Cookie = () => {
 
             <MenuOption>
               <Text>
-                <Text>Factory cps</Text>
+                <Text style={Styles.menuText}>Factory cps</Text>
                 <Text style={Styles.statNumbers}>
                   {" "}
                   {factoryUpgradeCPS * factoryCount}
@@ -352,9 +353,21 @@ const Cookie = () => {
 export default Cookie;
 
 const Styles = StyleSheet.create({
+  menuText: {
+    color: "white",
+  },
+
   menuTitle: {
-    fontWeight: 700,
-    fontSize: "120%",
+    fontWeight: "700",
+    fontSize: "20",
+    color: "white",
+    ...Platform.select({
+      ios: {},
+      android: {},
+      default: {
+        fontSize: "130%",
+      },
+    }),
   },
 
   statNumbers: {
