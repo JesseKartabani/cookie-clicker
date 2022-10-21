@@ -119,8 +119,8 @@ const Cookie = () => {
   // Progress bar logic
   const progressBar = () => {
     // 99% progress
-    if (progressBarCount < 0.99) {
-      setProgressBarCount(progressBarCount + 0.005); // increment progress bar 0.5%
+    if (progressBarCount < 1) {
+      setProgressBarCount(progressBarCount + 0.01); // increment progress bar 1%
     } else {
       // Gives user a click bonus for 10 seconds
       setClickmultiplier(clickMultiplier + progressBarBuff);
@@ -129,7 +129,7 @@ const Cookie = () => {
 
       setTimeout(function () {
         // Clear progress bar and click multiplier after 10 seconds
-        setProgressBarCount(progressBarCount - 0.99);
+        setProgressBarCount(progressBarCount - 1);
         setClickmultiplier(clickMultiplier - countProgressBuff);
       }, 10000);
     }
@@ -236,6 +236,7 @@ const Cookie = () => {
           marginTop={2}
           borderColor={"black"}
         />
+        <View>{progressBarCount > 0.99 && <Text>Click Bonus!</Text>}</View>
 
         {/* Clickable Cookie */}
         <TouchableOpacity
