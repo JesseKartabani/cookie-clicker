@@ -8,7 +8,7 @@ https://user-images.githubusercontent.com/69617120/197146329-1da8bd62-3174-4206-
 
 ## Building
 
-In order to build this, you must have git installed. Then paste the following command in a directory of your choice.
+In order to build this you must have git installed. Paste the following command in a directory of your choice.
 Alternatively you can download the code as a .zip file and extract it.
 
 ~~~git
