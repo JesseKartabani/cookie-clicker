@@ -26,6 +26,9 @@ const Cookie = () => {
   const [count, setCount] = useState(0);
   // Progress bar
   const [progressBarCount, setProgressBarCount] = useState(0);
+  // User click count during the progress bar buff
+  const [countProgressBuff, setCountProgressBuff] = useState(0);
+  const progressBarBuff = 0.5;
   // Tracks users total click multiplier
   const [clickMultiplier, setClickmultiplier] = useState(1);
   // Tracks users total cookies per second
@@ -115,13 +118,20 @@ const Cookie = () => {
 
   // Progress bar logic
   const progressBar = () => {
+    // 99% progress
     if (progressBarCount < 0.99) {
-      setProgressBarCount(progressBarCount + 0.01); // increment progress bar
+      setProgressBarCount(progressBarCount + 0.005); // increment progress bar 0.5%
     } else {
-      //make progress bar gold
-      // add to click multiplier
-      // after 10 seconds remove gold and click multiplier
-      //setProgressBarCount (progressBarCount - 0.99);
+      // Gives user a click bonus for 10 seconds
+      setClickmultiplier(clickMultiplier + progressBarBuff);
+      // Counts clicks during buff so we know how much clickMultiplier to remove
+      setCountProgressBuff(countProgressBuff + progressBarBuff);
+
+      setTimeout(function () {
+        // Clear progress bar and click multiplier after 10 seconds
+        setProgressBarCount(progressBarCount - 0.99);
+        setClickmultiplier(clickMultiplier - countProgressBuff);
+      }, 10000);
     }
   };
 
@@ -220,8 +230,11 @@ const Cookie = () => {
         <ProgressBar
           style={Styles.progressBar}
           progress={progressBarCount}
-          width={200}
+          width={250}
+          height={10}
           color={"gold"}
+          marginTop={2}
+          borderColor={"black"}
         />
 
         {/* Clickable Cookie */}
@@ -378,15 +391,9 @@ export default Cookie;
 
 const Styles = StyleSheet.create({
   progressBar: {
-    borderColor: "black",
     backgroundColor: "#fff",
     alignSelf: "center",
     borderWidth: "2",
-    ...Platform.select({
-      ios: {},
-      android: {},
-      default: {},
-    }),
   },
 
   menuText: {
