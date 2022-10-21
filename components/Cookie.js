@@ -251,7 +251,9 @@ const Cookie = () => {
 
         {/* Click bonus popup text when progress bar is full */}
         <View style={Styles.clickBonusTextContainer}>
-          {progressBarCount > 0.99 && <Text>Click Bonus!</Text>}
+          {progressBarCount > 0.99 && (
+            <Text style={Styles.clickBonusText}>Click Bonus!</Text>
+          )}
         </View>
 
         {/* Clickable Cookie */}
@@ -407,10 +409,34 @@ const Cookie = () => {
 export default Cookie;
 
 const Styles = StyleSheet.create({
+  clickBonusText: {
+    fontSize: "25%",
+    color: "gold",
+    fontWeight: "500",
+    ...Platform.select({
+      ios: {},
+      android: {},
+      default: {
+        fontSize: "130%",
+      },
+    }),
+  },
+
   clickBonusTextContainer: {
     position: "absolute",
-    left: 0,
-    top: 0,
+    top: 170,
+    left: 130,
+    ...Platform.select({
+      ios: {},
+      android: {},
+      default: {
+        top: 170,
+        left: "49%",
+        right: "49%",
+        flex: 1,
+        flexDirection: "row",
+      },
+    }),
   },
 
   progressBar: {
