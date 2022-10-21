@@ -34,7 +34,7 @@ const Cookie = () => {
   const [factoryUpgradeCost, setFactoryUpgradeCost] = useState(100);
   const upgradePriceMultiplier = 1.1;
   // Upgrade buffs
-  const cursorUpgradeBuff = 0.25; // Click multiplier
+  const cursorUpgradeBuff = 0.3; // Click multiplier
   const grandmaUpgradeCPS = 1;
   const farmUpgradeCPS = 3;
   const factoryUpgradeCPS = 5;
