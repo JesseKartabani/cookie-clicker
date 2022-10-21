@@ -17,12 +17,15 @@ import {
   MenuOptions,
   MenuTrigger,
 } from "react-native-popup-menu";
+import ProgressBar from "react-native-progress/Bar";
 
 const Cookie = () => {
   // Animation state
   const [rotateAnimation, setRotateAnimation] = useState(new Animated.Value(0));
   // Cookies collected
   const [count, setCount] = useState(0);
+  // Progress bar
+  const [progressBarCount, setProgressBarCount] = useState(0);
   // Tracks users total click multiplier
   const [clickMultiplier, setClickmultiplier] = useState(1);
   // Tracks users total cookies per second
@@ -108,6 +111,18 @@ const Cookie = () => {
     setFactoryUpgradeCost(factoryUpgradeCost * upgradePriceMultiplier);
 
     setFactoryCount(factoryCount + 1); // How many upgrades user has
+  };
+
+  // Progress bar logic
+  const progressBar = () => {
+    if (progressBarCount < 0.99) {
+      setProgressBarCount(progressBarCount + 0.01); // increment progress bar
+    } else {
+      //make progress bar gold
+      // add to click multiplier
+      // after 10 seconds remove gold and click multiplier
+      //setProgressBarCount (progressBarCount - 0.99);
+    }
   };
 
   // Add cookies per second to total cookie count
@@ -201,12 +216,21 @@ const Cookie = () => {
           </MenuOptions>
         </Menu>
 
+        {/* Progress bar for click bonus */}
+        <ProgressBar
+          style={Styles.progressBar}
+          progress={progressBarCount}
+          width={200}
+          color={"gold"}
+        />
+
         {/* Clickable Cookie */}
         <TouchableOpacity
           // On press we run our animation and increment cookie count
           onPress={async () => {
-            handleAnimation();
-            setCount(count + 1 * clickMultiplier);
+            handleAnimation(); // Rotates cookie
+            setCount(count + 1 * clickMultiplier); // increment cookies
+            progressBar();
           }}
           style={Styles.cookieImgContainer}
           activeOpacity={0.8}
@@ -353,6 +377,18 @@ const Cookie = () => {
 export default Cookie;
 
 const Styles = StyleSheet.create({
+  progressBar: {
+    borderColor: "black",
+    backgroundColor: "#fff",
+    alignSelf: "center",
+    borderWidth: "2",
+    ...Platform.select({
+      ios: {},
+      android: {},
+      default: {},
+    }),
+  },
+
   menuText: {
     color: "white",
   },
