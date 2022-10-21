@@ -154,7 +154,7 @@ const Cookie = () => {
                 <Text style={Styles.menuText}>Cookies Per Click</Text>
                 <Text style={Styles.statNumbers}>
                   {" "}
-                  {cursorUpgradeBuff * cursorCount + 1}
+                  +{cursorUpgradeBuff * cursorCount + 1}
                 </Text>
               </Text>
             </MenuOption>
@@ -174,7 +174,7 @@ const Cookie = () => {
                 <Text style={Styles.menuText}>Grandma cps</Text>
                 <Text style={Styles.statNumbers}>
                   {" "}
-                  {grandmaUpgradeCPS * grandmaCount}
+                  +{grandmaUpgradeCPS * grandmaCount}
                 </Text>
               </Text>
             </MenuOption>
@@ -184,7 +184,7 @@ const Cookie = () => {
                 <Text style={Styles.menuText}>Farm cps</Text>
                 <Text style={Styles.statNumbers}>
                   {" "}
-                  {farmUpgradeCPS * farmCount}
+                  +{farmUpgradeCPS * farmCount}
                 </Text>
               </Text>
             </MenuOption>
@@ -194,7 +194,7 @@ const Cookie = () => {
                 <Text style={Styles.menuText}>Factory cps</Text>
                 <Text style={Styles.statNumbers}>
                   {" "}
-                  {factoryUpgradeCPS * factoryCount}
+                  +{factoryUpgradeCPS * factoryCount}
                 </Text>
               </Text>
             </MenuOption>
